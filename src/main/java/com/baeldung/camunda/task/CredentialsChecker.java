@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,6 @@ public class CredentialsChecker implements JavaDelegate {
 	private final CustomerService customerService;
 
 	@Override
-	@Transactional
 	public void execute(DelegateExecution delegateExecution) throws Exception {
 		String username = (String) delegateExecution.getVariable("username");
 		String password = (String) delegateExecution.getVariable("password");
